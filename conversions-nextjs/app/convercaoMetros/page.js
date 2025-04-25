@@ -1,10 +1,11 @@
+"use client"
 import { useState } from "react";
 
 export default function Metros(){
     const [metros, setMetros] = useState('');
     const [pesPolegadas, setPesPolegadas] = useState('');
 
-    const handleMetros = ()=>{
+    const handleMetros = (e)=>{
         const value = parseFloat(e.target.value);
         setMetros(e.target.value);
         const pes = value * 3.28084;
@@ -12,7 +13,7 @@ export default function Metros(){
         setPesPolegadas(`${pes.toFixed(2)} pés / ${polegadas.toFixed(2)} polegadas.`);
     };
 
-    const handlePesPolegadas = () =>{
+    const handlePesPolegadas = (e) =>{
         const value = parseFloat(e.target.value);
         setPesPolegadas(e.target.value);
         const metros = value / 3.28084;
@@ -20,7 +21,7 @@ export default function Metros(){
     };
 
     return(
-        <div>
+        <div className="justify-center text-center">
             <h1 className="text-2xl font-bold mb-4">Conversor de Distância</h1>
             <input
             className="border p-2 mr-2"
